@@ -123,7 +123,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-    // Validation rules
+   
     $rules = [
         'name' => 'required|string|max:255|min:5',
         'description' => 'nullable|string',
@@ -132,7 +132,7 @@ class ProductController extends Controller
         'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
     ];
 
-    // Validate the incoming request
+
     $validator = Validator::make($request->all(), $rules);
 
     if ($validator->fails()) {
@@ -141,8 +141,8 @@ class ProductController extends Controller
                          ->withErrors($validator);
     }
 
-    // If the image is updated
-    $imagePath = $product->image;  // Default to existing image
+    
+    $imagePath = $product->image;  
     if ($request->hasFile('image')) {
 
         File::delete(public_path('uploads/products/' . $product->image));
@@ -184,7 +184,7 @@ class ProductController extends Controller
 
         $product->delete();
 
-        // Redirect to the product index page with a delete success message
+        
         return redirect()->route('products.index')
                          ->with('delete', 'Product deleted successfully!');
     }
