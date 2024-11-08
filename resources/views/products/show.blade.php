@@ -30,7 +30,7 @@
 
     <div class="flex flex-col md:flex-row items-center md:items-start md:space-x-10">
 
-        <!-- Product Image with Hover Effect and Click to Open in New Tab -->
+      
         <div class="w-full md:w-1/3">
             <a href="{{ $product->image ? asset($product->image) : asset('uploads/products/Untitled.png') }}" target="_blank">
                 <img src="{{ $product->image ? asset($product->image) : asset('uploads/products/Untitled.png') }}"
